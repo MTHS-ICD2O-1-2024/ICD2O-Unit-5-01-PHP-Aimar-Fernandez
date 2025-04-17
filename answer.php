@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!--ICD2O Unit 5-01 PHP-->
+<!--ICD2O Unit 3-04 PHP-->
 <html lang="en-ca">
 
 <head>
   <meta charset="utf-8" />
-  <meta name="description" content="random number program, PHP" />
+  <meta name="description" content="random number answer, PHP" />
   <meta name="keywords" content="ICD2O, mths" />
   <meta name="author" content="Aimar Fernandez" />
   <meta name="viewport" content="width+device-width, initial-scale=.1.0" />
@@ -23,7 +23,6 @@
 </head>
 
 <body>
-  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
   <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header">
       <br />
@@ -36,26 +35,22 @@
         <img src="./images/dice.gif" alt="dice gif">
       </div>
       <br />
-      <p>Enter a random number between 1 and 6</p>
-      <form action="answer.php" method="GET">
-        <!-- Numeric Textfield with Floating Label -->
-        <div
-          class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <input
-            class="mdl-textfield__input" type="text"
-            pattern="-?[0-9]*(\.[0-9]+)?" name="user-number" />
-          <label class="mdl-textfield__label" for="base-input"> Number...</label>
-          <span class="mdl-textfield__error">Input is not a number!</span>
-        </div>
-        <br />
-        <!-- Raised button with ripple -->
-        <button
-          class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
-          type="submit">
-          Enter
-        </button>
-        <br />
-      </form>
+      <div class="page-content">
+        <?php
+        $randomNumber = (random_int(1, 6));
+        $userNumber = $_GET["user-number"];
+        if ($userNumber == $randomNumber)
+          echo "<p>You guessed correcyly!</p>";
+        if ($userNumber != $randomNumber)
+          echo "<p>You guessed incorrectly" + 
+          "<br/>The answer was: " + $randomNumber + "</p>"
+        ?>
+      </div>
+      <br />
+      <div class="page-content-answer">
+        <a href="./index.php"> Return ...<a>
+      </div>
+      <br />
     </main>
   </div>
 </body>
